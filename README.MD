@@ -5,7 +5,7 @@
 ### Development
 1. **Build the Development Image**:
    ```bash
-   docker build --target dev -t rpg-app-dev .
+   docker build --target dev -t web-app-dev .
    ```
    
 2. **Run the Development Container**:
@@ -13,74 +13,74 @@
    docker run -p 3000:3000 \
    -v $(pwd)/server.js:/app/server.js \
    -v $(pwd)/public:/app/public \
-   rpg-app-dev
+   web-app-dev
    ```
 
 ### Production
 
 1. **Build the Production Image**:
    ```bash
-    docker build --target prod -t rpg-app-prod .
+    docker build --target prod -t web-app-prod .
    ```
 
 2. **Run the Production Container**:
    ```bash
-   docker run -p 3000:3000 rpg-app-prod
+   docker run -p 3000:3000 web-app-prod
    ```
    
-## Detener
+## Stop
 
 ### Development
-1. **Deneter el contenedor de desarrollo**:
+1. **Stop the development container**:
    ```bash
-   docker ps -q --filter "ancestor=rpg-app-dev" | xargs docker stop
+   docker ps -q --filter "ancestor=web-app-dev" | xargs docker stop
    ```
-2. **Eliminar Contenedor de desarrollo**:
+2. **Remove the development container**:
    ```bash
-   docker ps -a -q --filter "ancestor=rpg-app-dev" | xargs docker rm
+   docker ps -a -q --filter "ancestor=web-app-dev" | xargs docker rm
    ```
-3. **Eliminar imagen de desarollo**:
+3. **Remove the development image**:
    ```bash
-   docker rmi rpg-app-dev
+   docker rmi web-app-dev
    ```
 
 
 ### Production
-1. **Deneter el contenedor de produccion**:
+1. **Stop the production container**:
    ```bash
-   docker ps -q --filter "ancestor=rpg-app-prod" | xargs docker stop
+   docker ps -q --filter "ancestor=web-app-prod" | xargs docker stop
    ```
-2. **Eliminar Contenedor de produccion**:
+2. **Remove the production container:**:
    ```bash
-   docker ps -a -q --filter "ancestor=rpg-app-prod" | xargs docker rm
+   docker ps -a -q --filter "ancestor=web-app-prod" | xargs docker rm
    ```
-1. **Eliminar imagen de produccion**:
+3. **Remove the production image:**:
    ```bash
-   docker rmi rpg-app-prod
+   docker rmi web-app-prod
    ```
    
 
 # UPLOAD AND DOWNLOAD
 ## Upload
-1. **Ingresar**
+1. **Login**
 ```bash
 docker login
 ```
-2. **Etiquetar**
+2. **Tag**
 ```bash
-docker tag rpg-app-prod usuario/rpg-webapp:latest
+docker tag web-app-prod usuario/webapp:latest
    ```
-3. **Subir**
+3. **Up**
 ```bash
-docker push cejebuto/rpg-webapp:latest
+docker push usuario/webapp:latest
 ```
 
 ## Download
-1. **Descargar**
+1. **Pull**
 ```bash
-docker pull cejebuto/rpg-webapp:latest
+docker pull usuario/webapp:latest
 ```
-1. **Ejecutar**
+1. **Exec**
 ```bash
-docker run -p 3000:3000 cejebuto/rpg-webapp:latest
+docker run -p 3000:3000 usuario/webapp:latest
 ```
