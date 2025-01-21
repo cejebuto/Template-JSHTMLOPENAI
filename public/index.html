@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat GPT4 Mini</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 10px;
+            padding: 10px;
+            max-width: 600px;
+        }
+        input, textarea, button {
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 150px;
+        }
+        @media (max-width: 600px) {
+            body {
+                margin: 5px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Mini GPT4 Chat</h1>
+<input type="text" id="promptInput" placeholder="Tu pregunta..." />
+<button id="requestBtn">Enviar</button>
+<textarea id="responseArea" readonly placeholder="Aquí verás la respuesta..."></textarea>
+
+<script src="script.js"></script>
+</body>
+</html>
